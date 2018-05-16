@@ -1,4 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500');
 @import "bootstrap";
+
+body {
+  background: image_url('light_wool.png');
+  font-family: 'Maven Pro';
+}
+
+.navbar {
+  background: image_url('stardust.png');
+  box-shadow:
+    // Upper-inner
+    0 2px 3px hsla(243, 24%, 21%, 0.25) inset,
+    0 15px 60px -10px hsla(243, 22%, 5%, 0.5) inset,
+    // Lower-outer
+    0 0 2px,
+    0 0 20px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
