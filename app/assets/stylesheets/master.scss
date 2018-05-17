@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500');
 @import "bootstrap";
 
+// General
+
 body {
   background: image_url('light_wool.png');
+  font-family: 'Vollkorn';
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar {
   font-family: 'Maven Pro';
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: -.01em;
+}
+
+// Navigation
 
 .navbar {
   background: image_url('stardust.png');
@@ -17,10 +32,17 @@ body {
     0 0 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
+.navbar-inverse .navbar-brand {
+  color: hsl(242, 100%, 88%);
+	text-shadow: 0 0 1px;
+	font-size: 1.5rem;
 }
+
+.navbar-inverse .navbar-brand:hover {
+	text-shadow: 0 0 3px;
+}
+
+// Place item
 
 .booyah-box {
   margin-top: 10px;
@@ -29,5 +51,5 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   background: #fff;
-  box-shadow: 1px 1px 2px 0 #d0d0d0; // only 0.08% need prefixes for box-shadow - caniuse, 05-2018
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
 }
