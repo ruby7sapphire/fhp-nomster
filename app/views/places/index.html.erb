@@ -7,5 +7,6 @@
 <% end %>
 
 <div class="d-flex justify-content-center">
-	<%= paginate @places, window: 0 %>
+	<% window_addition = (@places.first_page? || @places.last_page?) ? 1 : 0 %>
+	<%= paginate @places, window: 0, outer_window: 1 + window_addition %>
 </div>
