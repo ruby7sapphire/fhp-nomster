@@ -1,7 +1,11 @@
 <% @places.each do |place| %>
-	<div class="booyah-box col-10 offset-1">
+	<div class="booyah-box col-sm-10 ml-auto mr-auto">
 		<h1><%= place.name %></h1>
 		<i><%= place.address %></i><br /><br />
 		<p><%= place.description %></p><br />
 	</div>
 <% end %>
+
+<div class="d-flex justify-content-center">
+	<%= paginate @places, window: 0, theme: 'twitter-bootstrap-4' %>
+</div>
