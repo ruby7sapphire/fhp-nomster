@@ -8,14 +8,15 @@ body {
   font-family: 'Vollkorn';
 }
 
-h1, h2, h3, h4, h5, h6,
+// Typography
+
+.h1, .h2, .h3, .h4, .h5, .h6,
 .navbar {
   font-family: 'Maven Pro';
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  // Use "em" to make properties proportional to the varying heading sizes
   letter-spacing: -.01em;
 }
 
@@ -42,9 +43,15 @@ h1, h2, h3, h4, h5, h6 {
 	text-shadow: 0 0 3px;
 }
 
+// Main Content
+
+.nm-main-content {
+	overflow: auto; // Fix first child's top margin "sticking out"
+}
+
 // Place item
 
-.place-item {
+.nm-place-item {
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 20px;

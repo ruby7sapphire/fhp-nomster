@@ -1,8 +1,14 @@
 <% @places.each do |place| %>
-	<div class="place-item col-sm-10 mx-auto">
-		<h1><%= place.name %></h1>
-		<i><%= place.address %></i><br /><br />
-		<p><%= place.description %></p><br />
+	<div class="nm-place-item col-sm-10 mx-auto">
+		<h1 class="h1">
+			<%= place.name %>
+		</h1>
+		<p class="font-italic">
+			<%= place.address %>
+		</p>
+		<p>
+			<%= place.description %>
+		</p>
 	</div>
 <% end %>
 
