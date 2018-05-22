@@ -52,9 +52,9 @@ form, input,
 	overflow: auto; // Fix first child's top margin "sticking out"
 }
 
-// Place item
+// Section box
 
-.nm-place-item {
+.nm-place-item, .nm-login-form {
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 20px;
