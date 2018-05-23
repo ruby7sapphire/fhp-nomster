@@ -2,25 +2,28 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// Fonts
+$nm-serif: 'Vollkorn';
+$nm-sans-serif: 'Maven Pro';
+
 // General
 
 body {
   background: image_url('light_wool.png');
-  font-family: 'Vollkorn';
+  font-family: $nm-serif;
 }
 
 // Typography
 
 .h1, .h2, .h3, .h4, .h5, .h6,
-form, input,
-.navbar,
-.alert {
-  font-family: 'Maven Pro';
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -.01em; // "em" for proportional scaling
+  font-family: $nm-sans-serif;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  // Use "em" to make properties proportional to the varying heading sizes
-  letter-spacing: -.01em;
+form, input,
+.alert {
+  font-family: $nm-sans-serif;
 }
 
 // Navigation
@@ -34,16 +37,17 @@ form, input,
     // Lower-outer
     0 0 2px,
     0 0 20px;
+  font-family: $nm-sans-serif;
 }
 
 .navbar-inverse .navbar-brand {
   color: hsl(242, 100%, 88%);
 	text-shadow: 0 0 1px;
 	font-size: 1.5rem;
-}
 
-.navbar-inverse .navbar-brand:hover {
-	text-shadow: 0 0 3px;
+  &:hover {
+  	text-shadow: 0 0 3px;
+  }
 }
 
 // Main Content
@@ -54,7 +58,7 @@ form, input,
 
 // Section box
 
-.nm-place-item, .nm-login-form {
+.nm-section-box {
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 20px;
