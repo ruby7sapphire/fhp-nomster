@@ -10,6 +10,11 @@
   </p>
 
   <% if @place.user.present? %>
+    <%# Display Edit link if logged-in user is the author of the Place %>
+    <% if @place.user_id == @current_user_id %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <% else %>
+      <small><%= @place.user.email %></small>
+    <% end %>
   <% end %>
 </div>

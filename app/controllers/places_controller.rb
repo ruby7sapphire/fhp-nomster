@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
 	def index
-		@places = Place.page(params[:page]).per(1)
+		@places = Place.page(params[:page]).order(:id).per(1)
 		@pagination_window = (@places.first_page? || @places.last_page?) ? 2 : 1
 	end
 
@@ -17,6 +17,7 @@ class PlacesController < ApplicationController
 
 	def show
 		@place = Place.find(params[:id])
+		@current_user_id = current_user ? current_user.id : 0
 	end
 
 	def edit
