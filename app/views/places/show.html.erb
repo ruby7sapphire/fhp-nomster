@@ -10,6 +10,6 @@
   </p>
 
   <% if @place.user.present? %>
-    <small><%= @place.user.email %></small>
+      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
   <% end %>
 </div>

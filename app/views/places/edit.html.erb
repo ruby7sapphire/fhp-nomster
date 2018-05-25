@@ -1,0 +1,9 @@
+<div class="nm-place-item col-sm-10">
+  <h1 class="mb-4">Edit Your Place</h1>
+  <%= simple_form_for @place, wrapper: :horizontal_form do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.submit 'Update', class: 'btn btn-primary mt-4' %>
+  <% end %>
+</div>
