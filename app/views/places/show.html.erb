@@ -1,0 +1,15 @@
+<div class="nm-place-item col-sm-10">
+  <h1>
+    <%= @place.name %>
+  </h1>
+  <p class="font-italic">
+    <%= @place.address %>
+  </p>
+  <p>
+    <%= @place.description %>
+  </p>
+
+  <% if @place.user.present? %>
+    <small><%= @place.user.email %></small>
+  <% end %>
+</div>

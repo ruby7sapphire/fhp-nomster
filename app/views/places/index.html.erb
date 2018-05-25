@@ -1,7 +1,7 @@
 <% @places.each do |place| %>
 	<div class="nm-place-item col-sm-10">
 		<h1>
-			<%= place.name %>
+			<%= link_to place.name, place_path(place) %>
 		</h1>
 		<p class="font-italic">
 			<%= place.address %>
