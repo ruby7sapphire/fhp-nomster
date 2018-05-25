@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
 
 	def index
 		@places = Place.page(params[:page]).per(1)
+		@pagination_window = (@places.first_page? || @places.last_page?) ? 2 : 1
 	end
 
 	def new
