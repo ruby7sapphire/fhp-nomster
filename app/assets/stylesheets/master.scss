@@ -123,9 +123,39 @@ abbr[title="required"] {
   margin-top: .5rem;
 }
 
+// Error messages
+
 .invalid-feedback {
+  padding: .1rem $input-padding-x;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: $alert-danger-border !important;
+  border-radius: $input-border-radius;
+  background-color: $alert-danger-bg;
   color: $alert-danger-text;
 }
+
+// Make error messages visually extend text-based input fields
+
+// The text-based input fields
+ .string.is-invalid,
+textarea.is-invalid {
+  @include border-bottom-radius(0);
+
+  &:not(:focus) {
+    border-color: $alert-danger-border;
+
+    @include transition($input-transition);
+  }
+}
+
+// The error messages for text-based input fields
+.string  + .invalid-feedback,
+textarea + .invalid-feedback {
+  @include border-top-radius(0);
+}
+
+// Devise authentication form
 
 .nm-devise-shared-links {
   font-family: $nm-sans-serif;
