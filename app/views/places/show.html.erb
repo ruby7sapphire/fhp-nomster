@@ -9,16 +9,7 @@
     <%= @place.description %>
   </p>
 
-  <% if @place.user.present? %>
-    <%# Display Edit and Remove links only if the user is logged-in
-         and is the author of this Place %>
-    <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Remove', place_path(@place), method: :delete,
-            data: {confirm: 'Are you sure you want to delete this?'},
-            class: 'btn btn-primary' %>
-    <% else %>
-      <small><%= @place.user.email %></small>
-    <% end %>
-  <% end %>
+
+  <%= render 'footer' %>
+
 </div>
