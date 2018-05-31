@@ -9,6 +9,7 @@
     <%= @place.description %>
   </p>
 
+  <%= render 'map' if @place.latitude.present? && @place.longitude.present? %>
 
   <%= render 'footer' %>
 

@@ -1,0 +1,49 @@
+
+// Allow maps to load when using Ajax (Turbolinks)
+// even when the main Google Maps API script doesn't reload
+// and regardless whether the API or the script in Show Place view loads first
+
+nm_GOOGLE_MAPS_API_LOADED = false;
+nm_PLACE_COORDINATES = false;
+
+// Called by Google Maps API, when it loads
+function nm_callback_google_maps_api() {
+  if (nm_PLACE_COORDINATES) nm_initMap(nm_PLACE_COORDINATES);
+  // The script in Show Place view will run its callback function
+  // on every Ajax reload and will need to know that the API has loaded
+  nm_GOOGLE_MAPS_API_LOADED = true;
+}
+
+
+// Called by the script in Show Place view, when it loads
+function nm_callback_place_map(placeCoordinates) {
+  if (nm_GOOGLE_MAPS_API_LOADED) {
+    nm_initMap(placeCoordinates);
+  }
+  else {
+    // Remember globally to be used later when Google Maps API loads
+    // and calls nm_initMap() through its callback function
+    nm_PLACE_COORDINATES = placeCoordinates;
+  }
+}
+
+
+// Called only by the callback functions above
+function nm_initMap(placeCoordinates) {
+
+  var map = new google.maps.Map(document.getElementById('nm-google-map'), {
+    zoom: 12,
+    center: placeCoordinates,
+    mapTypeId: 'hybrid',
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      mapTypeIds: ['hybrid', 'terrain']
+    }
+  });
+
+  var marker = new google.maps.Marker({
+    position: placeCoordinates,
+    map: map
+  });
+
+}

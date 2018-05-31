@@ -1,0 +1,17 @@
+<% content_for :head_place_map_js do %>
+  <%# The map.js script must be inline and precede
+      the Google Maps API and the nm_callback_place_map()
+      to guarantee availability when they run %>
+  <script><%= render 'map.js' %></script>
+  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBd9QjG4qnkruz9Mw6uuFOeg-rR6SOM3r8&callback=nm_callback_google_maps_api', async: true, defer: true %>
+<% end %>
+
+<div id="nm-google-map"></div>
+
+<script>
+  // Try to load the Google Map
+  nm_callback_place_map({
+    lat: <%= @place.latitude %>,
+    lng: <%= @place.longitude %>
+  });
+</script>
