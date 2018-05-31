@@ -20,3 +20,21 @@
   <%= f.input :rating %>
   <%= f.submit 'Add a comment', class: 'btn btn-primary mt-3' %>
 <% end %>
+
+<div class="nm-comments">
+
+  <h2>Comments</h2>
+
+  <% @place.comments.each do |comment| %>
+    <div class="nm-comment-item">
+      <blockquote>
+        <p>
+          <strong><%= comment.rating %></strong> &ndash;
+          <%= comment.message %>
+        </p>
+        <p>&mdash; <small><%= comment.user.email %></small></p>
+      </blockquote>
+    </div>
+  <% end %>
+
+</div>
