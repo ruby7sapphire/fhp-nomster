@@ -21,6 +21,7 @@ class PlacesController < ApplicationController
 
 	def show
 		@place = current_place
+		@comment = Comment.new
 	end
 
 	def edit
