@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	root 'places#index'
 	resources :places do
 	  get 'page/:page', action: :index, on: :collection
+		resources :comments, only: :create
 	end
   devise_for :users
 end
