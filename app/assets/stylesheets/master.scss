@@ -7,6 +7,8 @@
 $nm-serif: 'Vollkorn';
 $nm-sans-serif: 'Maven Pro';
 
+// Layout
+$nm-standard-spacer: 1.5rem;
 
 // General
 
@@ -23,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn {
   cursor: pointer;
+  font-family: $nm-sans-serif;
 }
 
 // Navigation
@@ -55,9 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Main Content
 
-.nm-main-content {
-	overflow: auto; // Fix first child's top margin "sticking out"
-}
+// .nm-main-content {}
 
 
 //========
@@ -100,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 // Place single view
 
 .nm-place-footer {
-  margin-top: 1.5rem;
+  margin-top: $nm-standard-spacer;
 }
 
 #nm-google-map {
@@ -133,7 +134,7 @@ abbr[title="required"] {
 
   & > h2,
   & .simple_form {
-    margin-bottom: 1.5rem;
+    margin-bottom: $nm-standard-spacer;
   }
 
 }
