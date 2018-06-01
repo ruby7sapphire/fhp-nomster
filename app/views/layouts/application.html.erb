@@ -11,11 +11,11 @@
 
   <body>
 
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse align-items-baseline">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNavbarToggler" aria-controls="mainNavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-inverse bg-inverse align-items-baseline">
+      <%= link_to 'nomStar', root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarToggler" aria-controls="mainNavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <%= link_to 'nomStar', root_path, class: 'navbar-brand' %>
 
       <div class="collapse navbar-collapse" id="mainNavbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
@@ -26,6 +26,7 @@
             <% end %>
           </li>
         </ul>
+
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
@@ -40,7 +41,9 @@
             </li>
           <% end %>
         </ul>
+
       </div>
+
     </nav>
 
     <% if notice.present? %>

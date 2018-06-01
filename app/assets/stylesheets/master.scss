@@ -48,6 +48,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.navbar-inverse .nav-link {
+	color: hsla(0, 0%, 100%, 0.5);
+}
+
 // Main Content
 
 .nm-main-content {
@@ -139,14 +143,20 @@ abbr[title="required"] {
 
 // Error messages
 
+$nm-alert-color-bg:     theme-color-level('danger', $alert-bg-level);
+$nm-alert-color-border: theme-color-level('danger', $alert-border-level);
+$nm-alert-color-text:   theme-color-level('danger', $alert-color-level);
+
 .invalid-feedback {
+  margin-top: 0;
   padding: .1rem $input-padding-x;
   border-width: 0 1px;
   border-style: solid;
-  border-color: $alert-danger-border !important;
+  border-color: $nm-alert-color-bg;
   border-radius: $input-border-radius;
-  background-color: $alert-danger-bg;
-  color: $alert-danger-text;
+  background-color: $nm-alert-color-bg;
+  color: $nm-alert-color-text;
+  font-size: 100%;
 }
 
 // Make error messages visually extend text-based input fields
@@ -157,7 +167,7 @@ textarea.is-invalid {
   @include border-bottom-radius(0);
 
   &:not(:focus) {
-    border-color: $alert-danger-border;
+    border-color: $nm-alert-color-border;
 
     @include transition($input-transition);
   }
