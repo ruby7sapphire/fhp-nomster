@@ -1,48 +1,52 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#nm-new-comment-modal">
-  Add a comment
-</button>
+<section class="nm-comments col-lg-9">
 
-<!-- Modal -->
-<div class="modal fade" id="nm-new-comment-modal" tabindex="-1" role="dialog" aria-labelledby="nm-new-comment-modal-label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title" id="nm-new-comment-modal-label">Add a comment</h4>
+  <header class="nm-comments-header d-flex justify-content-between">
+
+    <h2>Comments</h2>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nm_newCommentModal">
+      <% if @place.comments.present? %> Add a comment <% else %> Be the first to comment! <% end %>
+    </button>
+
+    <!-- Modal -->
+    <div class="nm-new-comment-modal modal fade" id="nm_newCommentModal" tabindex="-1" role="dialog" aria-labelledby="nm_newCommentModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="nm_newCommentModalLabel">Add a comment</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+            <div class="modal-body">
+              <h5 class="mb-4"><%= @place.name %></h5>
+              <%= f.input :message %>
+              <%= f.input :rating, as: :select, collection: Comment::RATINGS,
+                    wrapper_html: { class: 'nm-new-comment-modal-rating' } %>
+            </div>
+            <div class="nm-new-comment-modal-footer modal-footer">
+              <%= f.submit 'Add a comment', class: 'btn btn-primary' %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-        <div class="modal-body">
-          <%= f.input :message %>
-          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit 'Add a comment', class: 'btn btn-primary' %>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      <% end %>
     </div>
-  </div>
-</div>
 
-<div class="nm-comments">
-
-  <h2>Comments</h2>
+  </header>
 
   <% @place.comments.each do |comment| %>
     <div class="nm-comment-item">
       <blockquote>
-        <p>
-          <% if comment.humanized_rating.present? %>
-            <strong><%= comment.humanized_rating %></strong> &ndash;
-          <% end %>
-          <%= comment.message %>
-        </p>
-        <p>&mdash; <small><%= comment.user.email %></small></p>
+        <% if comment.humanized_rating.present? %>
+          <strong class="nm-comment-rating"><%= comment.humanized_rating %></strong>
+        <% end %>
+        <%= comment.message %>
       </blockquote>
+      <p class="nm-comment-email"><%= comment.user.email %></p>
     </div>
   <% end %>
 
-</div>
+</section>
