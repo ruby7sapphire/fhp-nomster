@@ -38,15 +38,7 @@
   </header>
 
   <% @place.comments.each do |comment| %>
-    <div class="nm-comment-item">
-      <blockquote>
-        <% if comment.humanized_rating.present? %>
-          <strong class="nm-comment-rating"><%= comment.humanized_rating %></strong>
-        <% end %>
-        <%= comment.message %>
-      </blockquote>
-      <p class="nm-comment-email"><%= comment.user.email %></p>
-    </div>
+    <%= render 'comment_item', comment: comment %>
   <% end %>
 
 </section>
