@@ -173,6 +173,10 @@ abbr[title="required"] {
   quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
+.nm-comment-item:last-of-type {
+  margin-bottom: 0;
+}
+
 .nm-comment-item::before,
 .nm-comment-item::after {
   position: absolute;
