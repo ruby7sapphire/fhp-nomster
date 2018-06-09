@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $nm-sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
+
 .btn {
   cursor: pointer;
   font-family: $nm-sans-serif;
@@ -114,16 +118,28 @@ h1, h2, h3, h4, h5, h6 {
 
 // Place single view
 
-.nm-place-footer {
-  margin-top: $nm-standard-spacer;
-}
-
 #nm-google-map {
   width: 100%;
   height: 300px;
 	box-shadow: 0 0 1px;
 
   @include border-radius;
+}
+
+.nm-place-footer {
+  display: flex;
+  align-items: baseline;
+  margin-top: $nm-standard-spacer;
+}
+
+.nm-place-footer .btn {
+	margin-right: 3px;
+}
+
+.nm-footer-place-credit {
+	flex-grow: 1;
+	text-align: right;
+  font-size: 85%;
 }
 
 // Forms
@@ -136,6 +152,22 @@ abbr[title="required"] {
   // Undo unnecessary decorations to the "required" asterisk
 	cursor: inherit;
 	text-decoration: inherit;
+}
+
+// Photos
+
+.nm-photo-slider {
+  margin-bottom: $nm-standard-spacer;
+}
+
+// New photo form
+
+.nm-file-upload-input {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 // Comments

@@ -1,0 +1,31 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nm_newPhotoModal">
+  Add a photo
+</button>
+
+<!-- Modal -->
+<div class="nm-new-photo-modal modal fade" id="nm_newPhotoModal" tabindex="-1" role="dialog" aria-labelledby="nm_newPhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="nm_newPhotoModalLabel">Add a photo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+        <div class="modal-body">
+          <h5 class="mb-4"><%= @place.name %></h5>
+          <%= image_tag(@photo.picture_url) if @photo.picture? %>
+          <%= f.input :picture %>
+          <%= f.hidden_field :picture_cache %>
+          <%= f.input :caption %>
+        </div>
+        <div class="nm-new-photo-modal-footer modal-footer">
+          <%= f.submit 'Add a photo', class: 'btn btn-primary' %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

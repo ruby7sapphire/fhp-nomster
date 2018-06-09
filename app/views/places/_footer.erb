@@ -1,14 +1,16 @@
 <div class="nm-place-footer">
+  <%= render 'photo_new' %>
   <% if @place.user.present? %>
     <%# Display Edit and Remove links only if the user is logged-in
          and is the author of this Place %>
     <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Remove', place_path(@place), method: :delete,
+      <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-primary' %>
+      <%= link_to 'Remove Place', place_path(@place), method: :delete,
             data: {confirm: 'Are you sure you want to delete this?'},
             class: 'btn btn-primary' %>
     <% else %>
-        <small>Place submitted by: <%= @place.user.email %></small>
+        <div class="nm-footer-place-credit">Place submitted by: <%= @place.user.email %></div>
     <% end %>
+
   <% end %>
 </div>

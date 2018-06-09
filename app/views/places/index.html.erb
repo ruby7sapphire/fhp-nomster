@@ -1,5 +1,10 @@
 <% @places.each do |place| %>
 	<div class="nm-place-item col-sm-10">
+		<div class="nm-featured-index-photo">
+			<% if place.photos.present? %>
+				<%= render 'photo_item', place: place, photo: place.photos.first %>
+			<% end %>
+		</div>
 		<h1>
 			<%= link_to place.name, place_path(place) %>
 		</h1>

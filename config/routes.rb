@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	resources :places do
 	  get 'page/:page', action: :index, on: :collection
 		resources :comments, only: :create
-		resources :photos, only: :create
+		resources :photos
 	end
   devise_for :users
 end
