@@ -6,11 +6,7 @@
     <%= @place.address %>
   </p>
 
-  <div class="nm-photo-slider">
-    <% @place.photos.each do |photo| %>
-      <%= render 'photo_item', place: @place, photo: photo %>
-    <% end %>
-  </div>
+  <%= render 'photo_slider' if @place.photos.present? %>
 
   <p>
     <%= @place.description %>

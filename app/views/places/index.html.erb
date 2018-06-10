@@ -1,27 +1,34 @@
 <% @places.each do |place| %>
-	<div class="nm-place-item col-sm-10">
-		<div class="nm-featured-index-photo">
+	<div class="nm-index-place nm-section-box row">
+
+		<div class="nm-index-photo-featured col-md-5">
 			<% if place.photos.present? %>
-				<%= render 'photo_item', place: place, photo: place.photos.first %>
+				<%= link_to place_path(place) do %>
+					<%= image_tag place.photos.first.picture, class: 'nm-index-photo-img' %>
+				<% end %>
 			<% end %>
 		</div>
-		<h1>
-			<%= link_to place.name, place_path(place) %>
-		</h1>
-		<p class="font-italic">
-			<%= place.address %>
-		</p>
-		<p>
-			<%= place.description %>
-		</p>
 
-		<% if place.user.present? %>
-			<small><%= place.user.email %></small>
-		<% end %>
+		<div class="nm-index-place-text col-md-7">
+			<h1>
+				<%= link_to place.name, place_path(place) %>
+			</h1>
+			<p class="font-italic">
+				<%= place.address %>
+			</p>
+			<p>
+				<%= place.description %>
+			</p>
 
-		<% if place.comments.present? %>
-			<%= render 'comment_item', comment: place.comments.last %>
-		<% end %>
+			<% if place.user.present? %>
+				<small><%= place.user.email %></small>
+			<% end %>
+
+			<% if place.comments.present? %>
+				<%= render 'comment_item', comment: place.comments.last %>
+			<% end %>
+		</div>
+
 	</div>
 <% end %>
 

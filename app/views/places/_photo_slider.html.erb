@@ -1,0 +1,41 @@
+<% slider_id = "nm_photo_slider_#{@place['id']}" %>
+
+<div class="nm-photo-slider-outer">
+  <div class="nm-photo-slider-inner" id="<%= slider_id %>">
+    <% @place.photos.each do |photo| %>
+      <%= render 'photo_slider_item', place: @place, photo: photo %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+jQuery(function() {
+  // Initialize Slick slider,
+  // allowing it to work with
+  // Turbolinks (Ajax) restoration visits (back/forward browser nav.)
+
+  // Cancel if Slick not detected
+  if (!'slick' in jQuery()) return
+
+  // Prepare variables
+  var SLIDER_ID = '<%= slider_id %>'
+  if (!window['nm_slickSlider']) nm_slickSlider = {} // Persists across Ajax reloads
+  var slider = jQuery('#' + SLIDER_ID)
+
+  // If this script aleady ran for this slider
+  if (SLIDER_ID in nm_slickSlider) {
+    // Replace the initialized but broken slider with a fresh one
+    slider.replaceWith(nm_slickSlider[SLIDER_ID].clone())
+    // Reselect the newly replaced slider
+    slider = jQuery('#' + SLIDER_ID)
+  }
+  // If this script has not run yet for this slider
+  else {
+    // Remember the uninitialized slider HTML
+    nm_slickSlider[SLIDER_ID] = slider.clone()
+  }
+
+  // Initialize the slider
+  slider.slick()
+})
+</script>

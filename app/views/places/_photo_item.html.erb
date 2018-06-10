@@ -1,7 +1,0 @@
-<div class="nm-photo-item">
-  <%= image_tag photo.picture, class: 'nm-photo-item-img' %>
-  <%= photo.caption %>
-  <% if current_user && current_user == photo.user %>
-    <%= link_to 'Edit photo', edit_place_photo_path(place, photo) %>
-  <% end %>
-</div>
