@@ -179,7 +179,9 @@ abbr[title="required"] {
   margin-bottom: $nm-standard-spacer;
 	padding-bottom: 62.5%;
   box-shadow: 0 0 1px;
+}
 
+.nm-photo-slider-outer:not(.nm-slider-is-fullscreen) {
   @include border-radius;
 }
 
@@ -209,24 +211,6 @@ abbr[title="required"] {
   cursor: grabbing;
 }
 
-// Photo slider navigation
-
-.slick-prev {
-  left: $nm-standard-spacer;
-}
-
-.slick-next {
-  right: $nm-standard-spacer;
-}
-
-.slick-arrow {
-  z-index: 1;
-}
-
-.slick-arrow:before {
-	color: hsla(0, 0%, 100%, 0.5);
-}
-
 // Photo slider item
 
 .nm-photo-slider-item-img {
@@ -235,6 +219,11 @@ abbr[title="required"] {
 	height: 100%;
 
 	object-fit: cover;
+}
+
+.nm-photo-slider-item-caption,
+.nm-photo-slider-item-caption-a {
+  	transition: .5s cubic-bezier(0.6, 0.1, 0.7, 0.2);
 }
 
 .nm-photo-slider-item-caption {
@@ -250,7 +239,6 @@ abbr[title="required"] {
 	color: hsla(0, 0%, 100%, 0.5);
 	font-style: italic;
 	opacity: 0.5;
-	transition: .5s cubic-bezier(0.6, 0.1, 0.7, 0.2);
 }
 
 .nm-photo-slider-item-caption:hover {
@@ -263,10 +251,75 @@ abbr[title="required"] {
 	text-decoration: underline;
 }
 
+.nm-photo-slider-item-caption-a:hover {
+  color: white;
+  transition: .3s;
+}
+
 @include media-breakpoint-down(xs) {
   .nm-photo-slider-item-caption {
     font-size: 85%;
   }
+}
+
+// Slider buttons
+
+.nm-slider-fullscreen-toggle,
+.slick-arrow {
+	text-shadow: 0 0 7px black;
+  opacity: .6;
+  transition: .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Slider navigation
+
+.slick-prev {
+  left: $nm-standard-spacer;
+}
+
+.slick-next {
+  right: $nm-standard-spacer;
+}
+
+.slick-arrow {
+  z-index: 1;
+}
+
+// Slider - fullscreen mode
+
+.nm-slider-is-fullscreen {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	margin: 0;
+	padding: 0;
+}
+
+.nm-slider-fullscreen-toggle {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+  z-index: 1;
+	width: 2rem;
+	color: white;
+	text-align: center;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	cursor: pointer;
+	transform: rotate(45deg);
+
+  user-select: none;
+}
+
+.nm-slider-is-fullscreen .nm-slider-fullscreen-button:before {
+	content: '\f067';
 }
 
 // New photo form
