@@ -28,8 +28,14 @@ img {
 }
 
 .btn {
-  cursor: pointer;
   font-family: $nm-sans-serif;
+  cursor: pointer;
+}
+
+// Layout
+
+.nm-width-md {
+  max-width: 768px;
 }
 
 // Navigation
@@ -46,7 +52,7 @@ img {
   font-family: $nm-sans-serif;
 }
 
-.navbar-inverse .navbar-brand {
+.navbar-dark .navbar-brand {
   color: hsl($nm-primary-hue, 100%, 88%);
 	text-shadow: 0 0 1px;
 	font-size: 1.5rem;
@@ -56,14 +62,28 @@ img {
   }
 }
 
-.navbar-inverse .nav-link {
+.navbar-dark .nav-link {
 	color: hsla(0, 0%, 100%, 0.5);
 }
 
 // Main Content
 
-// .nm-main-content {}
+.nm-main-content {
+  padding-bottom: $nm-standard-spacer;
+}
 
+@include media-breakpoint-up(sm) {
+  .nm-main-content {
+    padding-top: $nm-standard-spacer;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .nm-main-content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
 //========
 // Modules
@@ -91,18 +111,27 @@ img {
 // Section box
 
 .nm-section-box {
+  overflow: hidden;
   margin: 1rem auto;
   padding: 1.5rem;
   min-height: 18rem;
-  border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   background: #fff;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
 }
 
-// Place item
+@include media-breakpoint-up(sm) {
+  .nm-section-box {
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    border-radius: $border-radius;
+  }
+}
 
-.nm-place-item { @extend .nm-section-box ; }
+@include media-breakpoint-down(xs) {
+  .nm-section-box:first-child {
+    margin-top: 0;
+  }
+}
 
 // Index place
 
@@ -114,6 +143,8 @@ img {
 .nm-index-photo-img {
 	width: 100%;
 	height: 100%;
+	box-shadow: 0 0 1px;
+
 	object-fit: cover;
 }
 
@@ -138,14 +169,11 @@ img {
 #nm-google-map {
   width: 100%;
   height: 300px;
+  border-radius: $border-radius;
 	box-shadow: 0 0 1px;
-
-  @include border-radius;
 }
 
 .nm-place-footer {
-  display: flex;
-  align-items: baseline;
   margin-top: $nm-standard-spacer;
 }
 
@@ -154,9 +182,25 @@ img {
 }
 
 .nm-footer-place-credit {
-	flex-grow: 1;
-	text-align: right;
   font-size: 85%;
+}
+
+@include media-breakpoint-up(sm) {
+  .nm-place-footer {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .nm-footer-place-credit {
+    flex-grow: 1;
+    text-align: right;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .nm-footer-place-credit {
+    margin-top: 1rem;
+  }
 }
 
 // Forms
@@ -167,28 +211,36 @@ form, input {
 
 abbr[title="required"] {
   // Undo unnecessary decorations to the "required" asterisk
-	cursor: inherit;
 	text-decoration: inherit;
+	cursor: inherit;
+}
+
+// Edit Place
+
+#place_description {
+  height: 7.2rem;
 }
 
 // Photo slider
 
 .nm-photo-slider-outer {
 	position: relative;
-	overflow: hidden;
   margin-bottom: $nm-standard-spacer;
 	padding-bottom: 62.5%;
-  box-shadow: 0 0 1px;
 }
 
 .nm-photo-slider-outer:not(.nm-slider-is-fullscreen) {
-  @include border-radius;
+  overflow: hidden;
+  border-radius: $border-radius;
+
+  -webkit-mask-image: -webkit-linear-gradient(white, white); // overflow:hidden fix for Safari
 }
 
 .nm-photo-slider-inner {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+  background-color: black;
 }
 
 .slick-list,
@@ -260,6 +312,10 @@ abbr[title="required"] {
   .nm-photo-slider-item-caption {
     font-size: 85%;
   }
+
+  .nm-photo-slider-outer:not(.nm-slider-is-fullscreen) .nm-photo-slider-item-caption {
+    display: none;
+  }
 }
 
 // Slider buttons
@@ -322,7 +378,18 @@ abbr[title="required"] {
 	content: '\f067';
 }
 
-// New photo form
+@include media-breakpoint-down(xs) {
+  .slick-arrow {
+    display: none !important;
+  }
+
+  .nm-slider-fullscreen-toggle {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+// New Photo form
 
 .nm-file-upload-input {
   position: absolute;
@@ -332,11 +399,31 @@ abbr[title="required"] {
   opacity: 0;
 }
 
+// Edit Photo form
+
+.nm-edit-photo-preview {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  height: 100%;
+  border: 1px solid hsl(210, 14%, 83%);
+  border-radius: $border-radius;
+  background-color: hsl(210, 16%, 93%);
+}
+
 // Comments
 
 .nm-comments {
 	margin: $nm-standard-spacer auto;
-  padding: $nm-standard-spacer 0;
+  padding: $nm-standard-spacer;
+}
+
+@include media-breakpoint-up(md) {
+  .nm-comments-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
 }
 
 // New Comment modal and form
@@ -411,8 +498,8 @@ abbr[title="required"] {
 .nm-devise-view { @extend .nm-section-box ; }
 
 .nm-devise-view {
-  width: 24rem;
   max-width: 100%;
+  width: 24rem;
 
   & > h2,
   & .simple_form {
@@ -435,9 +522,9 @@ abbr[title="required"] {
 // Devise authentication form
 
 .nm-devise-shared-links {
-  font-family: $nm-sans-serif;
   // Justify the links horizontally
 	display: flex;
 	flex-flow: wrap;
 	justify-content: space-between;
+  font-family: $nm-sans-serif;
 }

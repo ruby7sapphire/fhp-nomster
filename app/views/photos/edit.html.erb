@@ -1,13 +1,21 @@
-<div class="nm-photo-edit nm-section-box col-sm-10">
-  <h1>Edit photo for <%= @place.name %></h1>
-  <%= simple_form_for @photo, url: place_photo_path(@place, @photo) do |f| %>
-      <%= image_tag(@photo.picture_url) if @photo.picture? %>
+<div class="nm-section-box">
+  <h1 class="mb-4">Edit photo for <%= @place.name %></h1>
+  <%= simple_form_for @photo, url: place_photo_path(@place, @photo), html: { class: 'row' } do |f| %>
+    <div class="col-lg-6">
+      <div class="nm-edit-photo-preview">
+        <%= image_tag(@photo.picture_url, class: 'nm-photo-edit-preview-img') if @photo.picture? %>
+      </div>
+    </div>
+    <div class="col-lg-6 pt-4">
       <%= f.input :picture %>
       <%= f.hidden_field :picture_cache %>
       <%= f.input :caption %>
-      <%= f.submit 'Update photo', class: 'btn btn-primary' %>
-      <%= link_to 'Remove photo', place_photo_path(@place, @photo), method: :delete,
-            data: {confirm: 'Are you sure you want to delete this?'},
-            class: 'btn btn-danger' %>
+      <div class="form-group mt-4 mb-0">
+        <%= link_to 'Remove photo', place_photo_path(@place, @photo), method: :delete,
+              data: {confirm: 'Are you sure you want to delete this photo?'},
+              class: 'btn btn-outline-danger' %>
+        <%= f.submit 'Update photo', class: 'btn btn-primary float-right' %>
+      </div>
+    </div>
   <% end %>
 </div>

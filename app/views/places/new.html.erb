@@ -1,9 +1,9 @@
-<div class="nm-place-item col-sm-10">
+<div class="nm-section-box nm-width-md">
   <h1 class="mb-4">Enter Your Place Details</h1>
   <%= simple_form_for @place, wrapper: :horizontal_form do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :description %>
-    <%= f.submit 'Create', class: 'btn btn-primary mt-4' %>
+    <%= f.submit 'Create', class: 'btn btn-primary mt-4 float-right' %>
   <% end %>
 </div>

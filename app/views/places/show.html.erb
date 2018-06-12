@@ -1,4 +1,4 @@
-<div class="nm-place-item col-sm-10">
+<div class="nm-section-box nm-width-md">
   <h1>
     <%= @place.name %>
   </h1>
@@ -14,7 +14,7 @@
 
   <%= render 'map' if @place.latitude.present? && @place.longitude.present? %>
 
-  <%= render 'footer' %>
+  <%= render 'footer' if @place.user.present? %>
 
 </div>
 

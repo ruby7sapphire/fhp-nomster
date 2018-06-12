@@ -5,10 +5,22 @@ module SimpleForm
         idf = "#{lookup_model_names.join("_")}_#{reflection_or_attribute_name}"
 
         button = template.content_tag(:div, class: 'input-group') do
+          # File name box
+          template.tag(:input,
+            id: "#{idf}_file_name",
+            class: 'string form-control',
+            type: 'text',
+            disabled: true,
+            placeholder: 'Drop an image here') +
+
+          # Invisible input field that stores files to upload (and acts as a drag-and-drop area)
           @builder.file_field(attribute_name, class: 'nm-file-upload-input') +
-          template.tag(:input, id: "#{idf}_file_name", class: 'string form-control', type: 'text', disabled: true) +
+
+          # Button: Choose a file
           template.content_tag(:div, class: 'input-group-append') do
-            template.content_tag(:span, "Choose a file", class: 'btn btn-outline-secondary', onclick: "$('##{idf}').click();")
+            template.content_tag(:span, "Choose an image file",
+              class: 'btn btn-outline-secondary',
+              onclick: "$('##{idf}').click();")
           end
         end
 

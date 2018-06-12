@@ -1,11 +1,11 @@
-<section class="nm-comments col-lg-9">
+<section class="nm-comments nm-width-md">
 
-  <header class="nm-comments-header d-flex justify-content-between">
+  <header class="nm-comments-header">
 
-    <h2>Comments</h2>
+    <h2 class="mb-3">Comments</h2>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nm_newCommentModal">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#nm_newCommentModal">
       <% if @place.comments.present? %> Add a comment <% else %> Be the first to comment! <% end %>
     </button>
 

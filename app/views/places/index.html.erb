@@ -20,10 +20,6 @@
 				<%= place.description %>
 			</p>
 
-			<% if place.user.present? %>
-				<small><%= place.user.email %></small>
-			<% end %>
-
 			<% if place.comments.present? %>
 				<%= render 'comment_item', comment: place.comments.last %>
 			<% end %>
