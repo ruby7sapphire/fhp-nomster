@@ -18,3 +18,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore CarrierWave uploads directory
+/public/uploads
