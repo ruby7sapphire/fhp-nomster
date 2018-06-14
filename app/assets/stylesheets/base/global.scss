@@ -1,0 +1,190 @@
+//
+// Global
+//
+
+//===============*
+// Variables
+
+// Fonts
+$nm-serif: 'Vollkorn';
+$nm-sans-serif: 'Maven Pro';
+
+// Layout
+$nm-standard-spacer: 1.5rem;
+
+//===============*
+// General
+
+body {
+  background: image_url('light_wool.png');
+  font-family: $nm-serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -.01em; // "em" for proportional scaling
+  font-family: $nm-sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn {
+  font-family: $nm-sans-serif;
+  cursor: pointer;
+}
+
+//===============*
+// Layout
+
+.nm-width-md {
+  max-width: 768px;
+}
+
+//---------------*
+// Section box
+
+.nm-section-box {
+  overflow: hidden;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  min-height: 18rem;
+  background: #fff;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+}
+
+@include media-breakpoint-up(sm) {
+  .nm-section-box {
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    border-radius: $border-radius;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .nm-section-box:first-child {
+    margin-top: 0;
+  }
+}
+
+//===============*
+// Navigation
+
+.navbar {
+  background: image_url('stardust.png');
+  box-shadow:
+    // Upper-inner
+    0 2px 3px hsla($nm-primary-hue, 24%, 21%, 0.25) inset,
+    0 15px 60px -10px hsla($nm-primary-hue, 22%, 5%, 0.5) inset,
+    // Lower-outer
+    0 0 2px,
+    0 0 20px;
+  font-family: $nm-sans-serif;
+}
+
+.navbar-dark .navbar-brand {
+  color: hsl($nm-primary-hue, 100%, 88%);
+	text-shadow: 0 0 1px;
+	font-size: 1.5rem;
+
+  &:hover {
+  	text-shadow: 0 0 3px;
+  }
+}
+
+.navbar-dark .nav-link {
+	color: hsla(0, 0%, 100%, 0.5);
+}
+
+//===============*
+// Main Content
+
+.nm-main-content {
+  padding-bottom: $nm-standard-spacer;
+}
+
+@include media-breakpoint-up(sm) {
+  .nm-main-content {
+    padding-top: $nm-standard-spacer;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .nm-main-content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+//===============*
+// Modules
+
+//---------------*
+// Forms, general
+
+form, input {
+  font-family: $nm-sans-serif;
+}
+
+abbr[title="required"] {
+  // Undo unnecessary decorations to the "required" asterisk
+	text-decoration: inherit;
+	cursor: inherit;
+}
+
+.form-actions {
+  margin-top: .5rem;
+}
+
+// Error messages
+
+.invalid-feedback {
+  // Override small font size (80%) set by Bootstrap
+  font-size: inherit;
+}
+
+//---------------*
+// Alert
+
+.alert {
+  font-family: $nm-sans-serif;
+}
+
+//---------------*
+// Modal
+
+.modal-content {
+  box-shadow: 0 0 30px hsla(0, 0%, 0%, 0.2);
+}
+
+.modal-backdrop {
+	background: hsl($nm-primary-hue, 36%, 70%);
+}
+
+.modal-backdrop.show {
+	opacity: 0.95;
+}
+
+//===============*
+// Devise authentication form
+
+.nm-devise-view { @extend .nm-section-box ; }
+
+.nm-devise-view {
+  max-width: 100%;
+  width: 24rem;
+
+  & > h2,
+  & .simple_form {
+    margin-bottom: $nm-standard-spacer;
+  }
+}
+
+.nm-devise-shared-links {
+  // Justify the links horizontally
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+  font-family: $nm-sans-serif;
+}
