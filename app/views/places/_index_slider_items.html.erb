@@ -1,0 +1,23 @@
+<% [
+  { filename: 'VLT-NGC-1232.jpg',
+    caption: 'Spiral galaxy NGC 1232. Produced in 1998 using one of the Very Large Telescopes of Paranal Observatory.'
+  },
+  { filename: 'VLT-NGC-3372-Carina-Nebula.jpg',
+    caption: '"Carina Nebula" NGC 3372. Produced in 2012 using one of the Very Large Telescopes of Paranal Observatory.'
+  },
+  { filename: 'GTC-NGC-891.jpg',
+    caption: 'Spiral galaxy NGC 891. Produced in 2017 using the Gran Telescopio of Roque de los Muchachos Observatory.'
+  },
+  { filename: 'GTC-M1-Crab-Nebula.jpg',
+    caption: '"The Crab Nebula" (M1). Produced in 2011 using the Gran Telescopio of Roque de los Muchachos Observatory.'
+  },
+].each do |photo| %>
+  <div class="nm-photo-slider-item">
+    <div class="nm-photo-slider-item-img-outer">
+      <%= slider_image_tag "index/#{photo[:filename]}", class: 'nm-photo-slider-item-img' %>
+    </div>
+    <div class="nm-photo-slider-item-caption">
+      <%= photo[:caption] %>
+    </div>
+  </div>
+<% end %>

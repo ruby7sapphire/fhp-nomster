@@ -54,6 +54,7 @@
       <p class="alert alert-danger text-center rounded-0"><%= alert %></p>
     <% end %>
 
+    <%= yield :body_before_main_content %>
     <div class="nm-main-content container">
       <%= yield %>
     </div>

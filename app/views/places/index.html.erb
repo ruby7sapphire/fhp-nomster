@@ -1,3 +1,7 @@
+<% content_for :body_before_main_content do %>
+	<%= render 'photo_slider', type: 'index', id: 'places' %>
+<% end %>
+
 <% @places.each do |place| %>
 	<div class="nm-index-place nm-section-box row">
 

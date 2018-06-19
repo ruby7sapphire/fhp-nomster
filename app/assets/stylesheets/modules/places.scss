@@ -5,6 +5,24 @@
 //===============*
 // Index view
 
+//---------------*
+// Slider
+
+@include media-breakpoint-up(md) {
+	.nm-index-slider {
+		height: 400px;
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.nm-index-slider {
+		padding-bottom: 75%;
+	}
+}
+
+//---------------*
+// Place
+
 .nm-index-place,
 .nm-index-photo-featured {
 	padding: 0;
