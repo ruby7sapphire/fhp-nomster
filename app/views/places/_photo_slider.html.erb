@@ -1,11 +1,9 @@
-<% slider_id = "nm_photo_slider_#{@place['id']}" %>
+<% slider_id = "nm_#{type}_slider_#{id}" %>
 
-<div class="nm-photo-slider-outer">
+<div class="nm-photo-slider-outer nm-<%= type %>-slider">
   <i class="nm-slider-fullscreen-toggle fa fa-sort"></i>
   <div class="nm-photo-slider-inner" id="<%= slider_id %>">
-    <% @place.photos.each do |photo| %>
-      <%= render 'photo_slider_item', place: @place, photo: photo %>
-    <% end %>
+    <%= render "#{type}_slider_items" %>
   </div>
 </div>
 

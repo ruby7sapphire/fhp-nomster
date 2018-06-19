@@ -1,0 +1,12 @@
+<% @place.photos.each do |photo| %>
+  <div class="nm-photo-slider-item">
+    <%= image_tag photo.picture, class: 'nm-photo-slider-item-img' %>
+    <div class="nm-photo-slider-item-caption">
+      <%= photo.caption %>
+      <% if current_user && current_user == photo.user %>
+        <%= link_to 'Edit photo', edit_place_photo_path(place, photo),
+              class: 'nm-photo-slider-item-caption-a text-right' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

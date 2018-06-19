@@ -6,7 +6,7 @@
     <%= @place.address %>
   </p>
 
-  <%= render 'photo_slider' if @place.photos.present? %>
+  <%= render 'photo_slider', type: 'place', id: @place[:id] if @place.photos.present? %>
 
   <p>
     <%= @place.description %>
