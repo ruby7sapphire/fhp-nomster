@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 		resources :photos
 	end
   devise_for :users
+	resources :users, only: :show
 end
