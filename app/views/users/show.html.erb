@@ -12,11 +12,29 @@
   </div>
 </div>
 
-<div class="nm-user-profile-comments nm-comment-list nm-width-md">
+<div class="nm-user-profile-comments nm-section-plain nm-width-md">
   <h2>My Comments</h2>
   <div class="nm-user-comment-list row">
     <% @user.comments.each do |comment| %>
       <%= render 'comment_item', comment: comment %>
     <% end %>
   </div>
+</div>
+
+<div class="nm-user-places nm-section-plain nm-width-md">
+  <h2 class="d-inline-block">My Places</h2>
+    <% @user.places.each do |place| %>
+      <div class="nm-user-place-item nm-section-box">
+        <h3><%= link_to place.name, place_path(place) %></h3>
+        <p class="font-italic">
+          <%= place.address %>
+        </p>
+        <p>
+          <%= place.description %>
+        </p>
+        <% if place.comments.present? %>
+          <%= render 'places/comment_item', comment: place.comments.last %>
+        <% end %>
+      </div>
+    <% end %>
 </div>

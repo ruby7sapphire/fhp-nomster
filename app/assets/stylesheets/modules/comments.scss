@@ -3,14 +3,6 @@
 //
 
 //===============*
-// General
-
-.nm-comment-list {
-	margin: $nm-standard-spacer auto;
-  padding: $nm-standard-spacer;
-}
-
-//===============*
 // Place show
 
 //---------------*
@@ -45,17 +37,13 @@
 
 .nm-comment-item {
   position: relative;
-  margin: $nm-standard-spacer 0;
+  margin-top: $nm-standard-spacer;
   padding: 1rem $nm-standard-spacer;
   border-left: 10px solid hsl($nm-primary-hue, 100%, 88%);
   border-radius: 4px;
   background: hsla($nm-primary-hue, 100%, 50%, 0.04);
   box-shadow:  0 0 3px hsl($nm-primary-hue, 100%, 88%);
   quotes: '\201C' '\201D' '\2018' '\2019';
-}
-
-.nm-comment-item:last-of-type {
-  margin-bottom: 0;
 }
 
 .nm-comment-item::before,
@@ -102,4 +90,8 @@
 }
 .nm-user-comment-item-place {
 	font-size: 113%;
+}
+
+.nm-user-place-item {
+	margin-top: $nm-standard-spacer;
 }
