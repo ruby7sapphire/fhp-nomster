@@ -62,7 +62,7 @@ end
 
 gem 'kaminari'
 gem 'simple_form'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'devise'
 gem 'geocoder'
 gem 'figaro'

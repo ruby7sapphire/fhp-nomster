@@ -1,7 +1,7 @@
 <% slider_id = "nm_#{type}_slider_#{id}" %>
 
 <div class="nm-photo-slider-outer nm-<%= type %>-slider">
-  <i class="nm-slider-fullscreen-toggle fa fa-sort"></i>
+  <%= icon('fas', 'sort', class: 'nm-slider-fullscreen-toggle') %>
   <div class="nm-photo-slider-inner" id="<%= slider_id %>">
     <%= render "#{type}_slider_items" %>
   </div>
