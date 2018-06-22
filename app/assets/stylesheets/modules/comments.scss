@@ -5,20 +5,26 @@
 //===============*
 // General
 
-.nm-comments {
+.nm-comment-list {
 	margin: $nm-standard-spacer auto;
   padding: $nm-standard-spacer;
 }
 
+//===============*
+// Place show
+
+//---------------*
+// Comment list
+
 @include media-breakpoint-up(md) {
-  .nm-comments-header {
+  .nm-place-comment-list-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
 }
 
-//===============*
+//---------------*
 // New comment modal and form
 
 .nm-new-comment-modal-rating {
@@ -85,4 +91,15 @@
 
 .nm-comment-email::before {
 	content: '\2014  '
+}
+
+//===============*
+// User Profile (My Profile) (show)
+
+
+.nm-user-comment-item-outer {
+	margin-top: 1.5rem;
+}
+.nm-user-comment-item-place {
+	font-size: 113%;
 }

@@ -1,4 +1,4 @@
-<div class="nm-user-profile nm-section-box col-md-8 row">
+<div class="nm-user-profile nm-section-box nm-width-md row">
     <div class="nm-user-profile-identity col-md-4">
       <%= icon('fas', 'user-astronaut', class: 'nm-user-avatar') %>
     </div>
@@ -9,5 +9,14 @@
       <p><%= @user.comments.count %> total comments</p>
       <p><%= @user.comments.where(rating: '5_stars').count %> total 5 star reviews</p>
     </div>
+  </div>
+</div>
+
+<div class="nm-user-profile-comments nm-comment-list nm-width-md">
+  <h2>My Comments</h2>
+  <div class="nm-user-comment-list row">
+    <% @user.comments.each do |comment| %>
+      <%= render 'comment_item', comment: comment %>
+    <% end %>
   </div>
 </div>
