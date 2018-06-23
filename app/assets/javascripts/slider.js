@@ -10,8 +10,8 @@ nm_initSlider = function(sliderID) {
 
   // Define variables
 
-  var isFullscreenClass = 'nm-slider-is-fullscreen'
-  var fullscreenToggleClass = 'nm-slider-fullscreen-toggle'
+  var isFullscreenClass = 'nm-photo-slider--is-fullscreen'
+  var fullscreenToggleClass = 'nm-photo-slider--fullscreen-toggle'
   var $slider = jQuery('#' + sliderID)
   if (!window['nm_SlickSlider']) nm_SlickSlider = {} // Persists across Ajax reloads
 
@@ -101,7 +101,7 @@ nm_initSlider = function(sliderID) {
   })
 
   // Add class to classless div that gets created by Slick
-  $slider.find('.nm-photo-slider-item').parent().addClass('nm-slick-slide-inner')
+  $slider.find('.nm-photo-slide').parent().addClass('nm-slick-slide--inner')
 
   // Show the same slide as before the Ajax page reload
   $slider.slick('slickGoTo', nm_SlickSlider[sliderID].index, true)

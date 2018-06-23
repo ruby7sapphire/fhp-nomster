@@ -2,8 +2,8 @@
   <h1 class="mb-4">Edit photo for <%= @place.name %></h1>
   <%= simple_form_for @photo, url: place_photo_path(@place, @photo), html: { class: 'row' } do |f| %>
     <div class="col-lg-6">
-      <div class="nm-edit-photo-preview">
-        <%= image_tag(@photo.picture_url, class: 'nm-photo-edit-preview-img') if @photo.picture? %>
+      <div class="nm-photo-edit--preview">
+        <%= image_tag(@photo.picture_url, class: 'nm-photo-edit--preview-img') if @photo.picture? %>
       </div>
     </div>
     <div class="col-lg-6 pt-4">

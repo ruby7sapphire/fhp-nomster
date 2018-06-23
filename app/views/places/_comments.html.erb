@@ -1,6 +1,6 @@
-<section class="nm-comment-list nm-section-plain nm-width-md">
+<section class="nm-place-comments nm-section-plain nm-width-md">
 
-  <header class="nm-place-comment-list-header">
+  <header class="nm-place-comments--header">
 
     <h2 class="mb-3">Comments</h2>
 
@@ -10,7 +10,7 @@
     </button>
 
     <!-- Modal -->
-    <div class="nm-new-comment-modal modal fade" id="nm_newCommentModal" tabindex="-1" role="dialog" aria-labelledby="nm_newCommentModalLabel" aria-hidden="true">
+    <div class="nm-comment-new--modal modal fade" id="nm_newCommentModal" tabindex="-1" role="dialog" aria-labelledby="nm_newCommentModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -24,9 +24,9 @@
               <h5 class="mb-4"><%= @place.name %></h5>
               <%= f.input :message %>
               <%= f.input :rating, as: :select, collection: Comment::RATINGS,
-                    wrapper_html: { class: 'nm-new-comment-modal-rating' } %>
+                    wrapper_html: { class: 'nm-comment-new--modal-rating' } %>
             </div>
-            <div class="nm-new-comment-modal-footer modal-footer">
+            <div class="nm-comment-new--modal-footer modal-footer">
               <%= f.submit 'Add a comment', class: 'btn btn-primary' %>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>

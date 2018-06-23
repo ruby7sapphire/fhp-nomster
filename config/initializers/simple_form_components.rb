@@ -14,7 +14,7 @@ module SimpleForm
             placeholder: 'Drop an image here') +
 
           # Invisible input field that stores files to upload (and acts as a drag-and-drop area)
-          @builder.file_field(attribute_name, class: 'nm-file-upload-input') +
+          @builder.file_field(attribute_name, class: 'nm-form--file-upload-input') +
 
           # Button: Choose a file
           template.content_tag(:div, class: 'input-group-append') do

@@ -4,7 +4,7 @@
 </button>
 
 <!-- Modal -->
-<div class="nm-new-photo-modal modal fade" id="nm_newPhotoModal" tabindex="-1" role="dialog" aria-labelledby="nm_newPhotoModalLabel" aria-hidden="true">
+<div class="nm-photo-new--modal modal fade" id="nm_newPhotoModal" tabindex="-1" role="dialog" aria-labelledby="nm_newPhotoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -21,7 +21,7 @@
           <%= f.hidden_field :picture_cache %>
           <%= f.input :caption %>
         </div>
-        <div class="nm-new-photo-modal-footer modal-footer">
+        <div class="nm-photo-new--modal-footer modal-footer">
           <%= f.submit 'Add a photo', class: 'btn btn-primary' %>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>

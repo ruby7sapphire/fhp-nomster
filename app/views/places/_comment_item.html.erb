@@ -1,9 +1,9 @@
-<div class="nm-comment-item">
+<div class="nm-a-comment">
   <blockquote>
     <% if comment.humanized_rating.present? %>
-      <strong class="nm-comment-rating"><%= comment.humanized_rating %></strong>
+      <strong class="nm-a-comment--rating"><%= comment.humanized_rating %></strong>
     <% end %>
     <%= comment.message %>
   </blockquote>
-  <p class="nm-comment-email"><%= comment.user.email %></p>
+  <p class="nm-a-comment--email"><%= comment.user.email %></p>
 </div>

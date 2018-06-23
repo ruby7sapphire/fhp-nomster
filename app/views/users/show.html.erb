@@ -1,20 +1,20 @@
-<div class="nm-user-profile nm-section-box nm-width-md row">
-    <div class="nm-user-profile-identity col-md-4">
-      <%= icon('fas', 'user-astronaut', class: 'nm-user-avatar') %>
+<div class="nm-user nm-section-box nm-width-md row">
+    <div class="nm-user--identity col-md-4">
+      <%= icon('fas', 'user-astronaut', class: 'nm-user--avatar') %>
     </div>
-  <div class="nm-user-profile-stats col-md-8">
-    <p class="nm-user-profile-email"><%= @user.email %></p>
-    <p class="nm-user-profile-member-since">Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
-    <div class="nm-user-profile-review-counts">
+  <div class="nm-user--stats col-md-8">
+    <p class="nm-user--email"><%= @user.email %></p>
+    <p class="nm-user--member-since">Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
+    <div class="nm-user--review-counts">
       <p><%= @user.comments.count %> total comments</p>
       <p><%= @user.comments.where(rating: '5_stars').count %> total 5 star reviews</p>
     </div>
   </div>
 </div>
 
-<div class="nm-user-profile-comments nm-section-plain nm-width-md">
+<div class="nm-user-comments--outer nm-section-plain nm-width-md">
   <h2>My Comments</h2>
-  <div class="nm-user-comment-list row">
+  <div class="nm-user-comments row">
     <% @user.comments.each do |comment| %>
       <%= render 'comment_item', comment: comment %>
     <% end %>
@@ -24,7 +24,7 @@
 <div class="nm-user-places nm-section-plain nm-width-md">
   <h2 class="d-inline-block">My Places</h2>
     <% @user.places.each do |place| %>
-      <div class="nm-user-place-item nm-section-box">
+      <div class="nm-user-place nm-section-box">
         <h3><%= link_to place.name, place_path(place) %></h3>
         <p class="font-italic">
           <%= place.address %>

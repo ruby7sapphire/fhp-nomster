@@ -8,7 +8,7 @@
 //---------------*
 // Slider
 
-.nm-index-slider:not(.nm-slider-is-fullscreen) .nm-photo-slider-item-img-outer {
+.nm-index-slider:not(.nm-slider-is-fullscreen) .nm-photo-slide--img-outer {
 	box-shadow:
 		0 0  3px,
 		0 0 20px;
@@ -16,31 +16,31 @@
 
 @include media-breakpoint-up(md) {
 	.nm-index-slider {
-		height: calc(400px + #{$nm-photo-slider-subtract-height});
+		height: calc(400px + #{$nm-photo-slide--subtract-height});
 	}
 
-	.nm-photo-slider-item-caption {
+	.nm-photo-slide--caption {
 		text-align: center;
 	}
 }
 
 @include media-breakpoint-down(sm) {
 	.nm-index-slider {
-		padding-bottom: calc(75% + #{$nm-photo-slider-subtract-height});
+		padding-bottom: calc(75% + #{$nm-photo-slide--subtract-height});
 	}
 }
 
 @include media-breakpoint-down(xs) {
 	.nm-index-slider {
-		padding-bottom: calc(75% + #{$nm-photo-slider-subtract-height + 1});
+		padding-bottom: calc(75% + #{$nm-photo-slide--subtract-height + 1});
 	}
 
-	.nm-photo-slider-item-img-outer {
-		height: calc(100% - #{$nm-photo-slider-caption-height + 1});
+	.nm-photo-slide--img-outer {
+		height: calc(100% - #{$nm-photo-slide--caption-height + 1});
 	}
 
-	.nm-photo-slider-item-caption {
-	  height: $nm-photo-slider-caption-height + 1;
+	.nm-photo-slide--caption {
+	  height: $nm-photo-slide--caption-height + 1;
 	}
 
 }
@@ -49,7 +49,7 @@
 // Place
 
 .nm-index-place,
-.nm-index-photo-featured {
+.nm-index-photo--featured {
 	padding: 0;
 }
 
@@ -57,7 +57,7 @@
 	min-height: 18rem;
 }
 
-.nm-index-photo-img {
+.nm-index-photo--img {
 	width: 100%;
 	height: 100%;
 	box-shadow: 0 0 1px;
@@ -65,7 +65,7 @@
 	object-fit: cover;
 }
 
-.nm-index-place-text {
+.nm-index-place--text {
 	padding: 1.5rem;
 }
 
@@ -103,7 +103,7 @@
 	margin-right: 3px;
 }
 
-.nm-footer-place-credit {
+.nm-place-footer--credit {
   font-size: 85%;
 }
 
@@ -113,14 +113,14 @@
     align-items: baseline;
   }
 
-  .nm-footer-place-credit {
+  .nm-place-footer--credit {
     flex-grow: 1;
     text-align: right;
   }
 }
 
 @include media-breakpoint-down(xs) {
-  .nm-footer-place-credit {
+  .nm-place-footer--credit {
     margin-top: 1rem;
   }
 }

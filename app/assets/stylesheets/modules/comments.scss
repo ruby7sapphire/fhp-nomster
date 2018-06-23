@@ -9,7 +9,7 @@
 // Comment list
 
 @include media-breakpoint-up(md) {
-  .nm-place-comment-list-header {
+  .nm-place-comments--header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -19,7 +19,7 @@
 //---------------*
 // New comment modal and form
 
-.nm-new-comment-modal-rating {
+.nm-comment-new--modal-rating {
   float: left;
 
   & select {
@@ -27,7 +27,7 @@
   }
 }
 
-.nm-new-comment-modal-footer {
+.nm-comment-new--modal-footer {
   float: right;
   border: none;
 }
@@ -35,7 +35,7 @@
 //===============*
 // Comment item
 
-.nm-comment-item {
+.nm-a-comment {
   position: relative;
   margin-top: $nm-standard-spacer;
   padding: 1rem $nm-standard-spacer;
@@ -46,8 +46,8 @@
   quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
-.nm-comment-item::before,
-.nm-comment-item::after {
+.nm-a-comment::before,
+.nm-a-comment::after {
   position: absolute;
   z-index: -1;
   color: hsla($nm-primary-hue, 100%, 50%, 0.06);
@@ -55,43 +55,43 @@
   line-height: 1;
 }
 
-.nm-comment-item::before {
+.nm-a-comment::before {
   top: -0.5rem;
   left: 0.2rem;
   margin-top: -0.3rem;
   content: open-quote;
 }
 
-.nm-comment-item::after {
+.nm-a-comment::after {
   right: 0.2rem;
   bottom: -0.5rem;
   height: 3rem;
   content: close-quote;
 }
 
-.nm-comment-rating::after {
+.nm-a-comment--rating::after {
 	content: ' \2014';
 }
 
-.nm-comment-email {
+.nm-a-comment--email {
   margin-bottom: 0;
 }
 
-.nm-comment-email::before {
+.nm-a-comment--email::before {
 	content: '\2014  '
 }
 
 //===============*
 // User Profile (My Profile) (show)
 
-
-.nm-user-comment-item-outer {
+.nm-user-comment--outer {
 	margin-top: 1.5rem;
 }
-.nm-user-comment-item-place {
+
+.nm-user-comment--place-name {
 	font-size: 113%;
 }
 
-.nm-user-place-item {
+.nm-user-place {
 	margin-top: $nm-standard-spacer;
 }

@@ -12,11 +12,11 @@
     caption: '"The Crab Nebula" (M1). Produced in 2011 using the Gran Telescopio of Roque de los Muchachos Observatory.'
   },
 ].each do |photo| %>
-  <div class="nm-photo-slider-item">
-    <div class="nm-photo-slider-item-img-outer">
-      <%= slider_image_tag "index/#{photo[:filename]}", class: 'nm-photo-slider-item-img' %>
+  <div class="nm-photo-slide">
+    <div class="nm-photo-slide--img-outer">
+      <%= slider_image_tag "index/#{photo[:filename]}", class: 'nm-photo-slide--img' %>
     </div>
-    <div class="nm-photo-slider-item-caption">
+    <div class="nm-photo-slide--caption">
       <%= photo[:caption] %>
     </div>
   </div>

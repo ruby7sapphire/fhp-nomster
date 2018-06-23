@@ -5,6 +5,6 @@
   <% if current_user && current_user == @place.user %>
     <%= link_to 'Edit Place', edit_place_path(@place), class: 'btn btn-outline-primary' %>
   <% else %>
-      <div class="nm-footer-place-credit">Place submitted by: <%= @place.user.email %></div>
+      <div class="nm-place-footer--credit">Place submitted by: <%= @place.user.email %></div>
   <% end %>
 </div>

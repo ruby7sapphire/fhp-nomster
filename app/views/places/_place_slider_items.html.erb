@@ -1,13 +1,13 @@
 <% @place.photos.each do |photo| %>
-  <div class="nm-photo-slider-item">
-    <div class="nm-photo-slider-item-img-outer">
-      <%= image_tag photo.picture, class: 'nm-photo-slider-item-img' %>
+  <div class="nm-photo-slide">
+    <div class="nm-photo-slide--img-outer">
+      <%= image_tag photo.picture, class: 'nm-photo-slide--img' %>
     </div>
-    <div class="nm-photo-slider-item-caption">
+    <div class="nm-photo-slide--caption">
       <%= photo.caption %>
       <% if current_user && current_user == photo.user %>
         <%= link_to 'Edit photo', edit_place_photo_path(@place, photo),
-              class: 'nm-photo-slider-item-caption-a float-right' %>
+              class: 'nm-photo-slide--caption-a float-right' %>
       <% end %>
     </div>
   </div>

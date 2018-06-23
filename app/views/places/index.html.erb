@@ -5,15 +5,15 @@
 <% @places.each do |place| %>
 	<div class="nm-index-place nm-section-box row">
 
-		<div class="nm-index-photo-featured col-md-5">
+		<div class="nm-index-photo--featured col-md-5">
 			<% if place.photos.present? %>
 				<%= link_to place_path(place) do %>
-					<%= image_tag place.photos.first.picture, class: 'nm-index-photo-img' %>
+					<%= image_tag place.photos.first.picture, class: 'nm-index-photo--img' %>
 				<% end %>
 			<% end %>
 		</div>
 
-		<div class="nm-index-place-text col-md-7">
+		<div class="nm-index-place--text col-md-7">
 			<h1>
 				<%= link_to place.name, place_path(place) %>
 			</h1>

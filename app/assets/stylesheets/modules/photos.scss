@@ -5,7 +5,7 @@
 //===============*
 // New and edit views
 
-.nm-file-upload-input {
+.nm-form--file-upload-input {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -16,7 +16,7 @@
 //===============*
 // Edit view
 
-.nm-edit-photo-preview {
+.nm-photo-edit--preview {
   display: flex;
   overflow: hidden;
   align-items: center;

@@ -2,14 +2,14 @@
 // Users
 //
 
-.nm-user-profile-identity {
+.nm-user--identity {
 	display: flex;
 	align-items: center;
 	justify-content: center;
   min-height: 100%;
 }
 
-.nm-user-avatar {
+.nm-user--avatar {
 	background: linear-gradient(154deg, hsl(288, 48%, 58%), hsl(243, 49%, 36%));
 	-webkit-background-clip: text;
 	background-size: 100%;
@@ -19,19 +19,19 @@
 	-webkit-text-fill-color: transparent;
 }
 
-.nm-user-profile-email {
+.nm-user--email {
 	width: 100%;
 	word-wrap: break-word;
 	font-weight: bold;
 	font-size: 115%;
 }
 
-.nm-user-profile-member-since {
+.nm-user--member-since {
 	padding-bottom: 0.9rem;
 	border-bottom: 3px solid hsl(243, 50%, 50%);
 }
 
-.nm-user-profile-stats {
+.nm-user--stats {
 	text-align: center;
 	font-size: 120%;
 }
