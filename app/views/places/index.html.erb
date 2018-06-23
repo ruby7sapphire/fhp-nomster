@@ -1,5 +1,5 @@
 <% content_for :body_before_main_content do %>
-	<%= render 'photo_slider', type: 'index', id: 'places' %>
+	<%= render 'photos/slider', type: 'index', id: 'places' %>
 <% end %>
 
 <% @places.each do |place| %>
@@ -25,7 +25,7 @@
 			</p>
 
 			<% if place.comments.present? %>
-				<%= render 'comment_item', comment: place.comments.last %>
+				<%= render 'comment', comment: place.comments.last %>
 			<% end %>
 		</div>
 

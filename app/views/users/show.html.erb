@@ -16,7 +16,7 @@
   <h2>My Comments</h2>
   <div class="nm-user-comments row">
     <% @user.comments.each do |comment| %>
-      <%= render 'comment_item', comment: comment %>
+      <%= render 'comment', comment: comment %>
     <% end %>
   </div>
 </div>
@@ -33,7 +33,7 @@
           <%= place.description %>
         </p>
         <% if place.comments.present? %>
-          <%= render 'places/comment_item', comment: place.comments.last %>
+          <%= render 'places/comment', comment: place.comments.last %>
         <% end %>
       </div>
     <% end %>
