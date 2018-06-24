@@ -1,11 +1,11 @@
-<div class="nm-user nm-section-box nm-width-md row">
-    <div class="nm-user--identity col-md-4">
-      <%= icon('fas', 'user-astronaut', class: 'nm-user--avatar') %>
+<div class="nm-user-info nm-section-box nm-width-md row">
+    <div class="nm-user-info--identity col-md-4">
+      <%= icon('fas', 'user-astronaut', class: 'nm-user-info--avatar') %>
     </div>
-  <div class="nm-user--stats col-md-8">
-    <p class="nm-user--email"><%= @user.email %></p>
-    <p class="nm-user--member-since">Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
-    <div class="nm-user--review-counts">
+  <div class="nm-user-info--stats col-md-8">
+    <p class="nm-user-info--email"><%= @user.email %></p>
+    <p class="nm-user-info--member-since">Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
+    <div class="nm-user-info--review-counts">
       <p><%= @user.comments.count %> total comments</p>
       <p><%= @user.comments.where(rating: '5_stars').count %> total 5 star reviews</p>
     </div>

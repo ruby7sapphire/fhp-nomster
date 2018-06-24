@@ -109,11 +109,28 @@ $nm-photo-slide--subtract-height:
 	text-decoration: underline;
 }
 
+@include media-breakpoint-up(md) {
+  .nm-photo-slide--caption {
+    text-align: center;
+  }
+}
+
 @include media-breakpoint-down(xs) {
   .nm-photo-slide--caption {
     font-size: 85%;
   }
 }
+
+@include media-breakpoint-down(xs) {
+	.nm-photo-slide--img-outer {
+		height: calc(100% - #{$nm-photo-slide--caption-height + 1});
+	}
+
+	.nm-photo-slide--caption {
+	  height: $nm-photo-slide--caption-height + 1;
+	}
+}
+
 
 //---------------*
 // Slider buttons

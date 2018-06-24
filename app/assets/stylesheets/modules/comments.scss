@@ -1,39 +1,6 @@
 //
-// Comments
+// Comments (shared)
 //
-
-//===============*
-// Place show
-
-//---------------*
-// Comment list
-
-@include media-breakpoint-up(md) {
-  .nm-place-comments--header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-  }
-}
-
-//---------------*
-// New comment modal and form
-
-.nm-comment-new--modal-rating {
-  float: left;
-
-  & select {
-    width: 9rem;
-  }
-}
-
-.nm-comment-new--modal-footer {
-  float: right;
-  border: none;
-}
-
-//===============*
-// Comment item
 
 .nm-a-comment {
   position: relative;
@@ -79,19 +46,4 @@
 
 .nm-a-comment--email::before {
 	content: '\2014  '
-}
-
-//===============*
-// User Profile (My Profile) (show)
-
-.nm-user-comment--outer {
-	margin-top: 1.5rem;
-}
-
-.nm-user-comment--place-name {
-	font-size: 113%;
-}
-
-.nm-user-place {
-	margin-top: $nm-standard-spacer;
 }
