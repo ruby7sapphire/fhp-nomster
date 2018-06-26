@@ -12,7 +12,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark align-items-baseline">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark align-items-baseline <%= yield :navbar_class %>">
       <%= link_to 'nomStar', root_path, class: 'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbarToggler" aria-controls="mainNavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -61,5 +61,7 @@
     <div class="nm-main-content container">
       <%= yield %>
     </div>
+
+    <div class="nm-main-footer"></div>
   </body>
 </html>

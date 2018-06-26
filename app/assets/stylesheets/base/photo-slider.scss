@@ -49,9 +49,9 @@ $nm-photo-slide--subtract-height:
 // Slider item
 
 .nm-photo-slide {
-	height: calc(100% - #{$nm-photo-slide--dots-height});
-	overflow: hidden;
 	position: relative;
+	overflow: hidden;
+	height: calc(100% - #{$nm-photo-slide--dots-height});
 }
 
 .nm-photo-slider--is-fullscreen .nm-photo-slide {
@@ -64,7 +64,7 @@ $nm-photo-slide--subtract-height:
 	height: calc(100% - #{$nm-photo-slide--caption-height});
 }
 
-.nm-section-box .nm-photo-slide--img-outer {
+.nm-main-content .nm-photo-slide--img-outer {
   overflow: hidden;
   border-radius: $border-radius;
 
@@ -72,8 +72,8 @@ $nm-photo-slide--subtract-height:
 }
 
 .nm-photo-slider--is-fullscreen .nm-photo-slide--img-outer {
-  border-radius: 0;
   height: 100%;
+  border-radius: 0;
 }
 
 // Image tag
@@ -107,12 +107,6 @@ $nm-photo-slide--subtract-height:
 
 .nm-photo-slide--caption-a {
 	text-decoration: underline;
-}
-
-@include media-breakpoint-up(md) {
-  .nm-photo-slide--caption {
-    text-align: center;
-  }
 }
 
 @include media-breakpoint-down(xs) {
@@ -208,8 +202,8 @@ $nm-photo-slide--subtract-height:
 
 .nm-photo-slider--fullscreen-toggle {
 	position: absolute;
-	top: 1.5rem;
-	right: 1.5rem;
+	top: $nm-standard-spacer;
+	right: $nm-standard-spacer;
   z-index: 1;
 	width: 2rem;
 	color: white;

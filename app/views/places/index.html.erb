@@ -1,6 +1,12 @@
+<% content_for :navbar_class, 'nm-index-navbar' %>
+
 <% content_for :body_before_main_content do %>
 	<%= render 'photos/slider', type: 'index', id: 'places' %>
 <% end %>
+
+<div class="d-flex justify-content-center">
+	<%= paginate @places, window: 0, outer_window: @pagination_window %>
+</div>
 
 <% @places.each do |place| %>
 	<div class="nm-index-place nm-section-box row">
@@ -31,7 +37,3 @@
 
 	</div>
 <% end %>
-
-<div class="d-flex justify-content-center">
-	<%= paginate @places, window: 0, outer_window: @pagination_window %>
-</div>

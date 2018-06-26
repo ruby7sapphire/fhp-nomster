@@ -1,12 +1,9 @@
 <div class="nm-user-comment col-md-6">
   <h3 class="nm-user-comment--place-name"><%= link_to comment.place.name, place_path(comment.place) %></h3>
-  <div class="nm-a-comment">
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <strong class="nm-a-comment--rating"><%= comment.humanized_rating %></strong>
-      <% end %>
-      <%= comment.message %>
-    </blockquote>
-    <p class="nm-a-comment--email"><%= comment.user.email %></p>
-  </div>
+  <blockquote class="nm-a-comment">
+    <% if comment.humanized_rating.present? %>
+      <strong class="nm-a-comment--rating"><%= comment.humanized_rating %></strong>
+    <% end %>
+    <%= comment.message %>
+  </blockquote>
 </div>

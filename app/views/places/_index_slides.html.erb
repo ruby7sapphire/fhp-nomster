@@ -15,8 +15,9 @@
   <div class="nm-photo-slide">
     <div class="nm-photo-slide--img-outer">
       <%= slider_image_tag "index/#{photo[:filename]}", class: 'nm-photo-slide--img' %>
+      <%= slider_image_tag "index/#{photo[:filename]}", class: 'nm-photo-slide--img nm-index-slide--img-blur-overlay' %>
     </div>
-    <div class="nm-photo-slide--caption">
+    <div class="nm-photo-slide--caption nm-index-slide--caption">
       <%= photo[:caption] %>
     </div>
   </div>

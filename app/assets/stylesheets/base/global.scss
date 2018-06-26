@@ -12,11 +12,29 @@ $nm-sans-serif: 'Maven Pro';
 // Layout
 $nm-standard-spacer: 1.5rem;
 
+// Colors
+// primary color defined in bootstrap-custom.scss to load before Bootstrap
+$nm-secondary-hue: $nm-primary-hue + 45;
+$nm-primary-secondary-average-hue: ($nm-primary-hue + $nm-secondary-hue) / 2;
+$nm-primary-gradient: linear-gradient(
+  154deg,
+  hsl($nm-secondary-hue, 48%, 58%),
+  hsl($nm-primary-hue, 49%, 36%));
+$nm-black-50: hsla(0, 0%, 0%, 0.5);
+
 //===============*
 // General
 
+// Stick main footer to the bottom
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
+  padding-bottom: $nm-standard-spacer * 2;
   background: image_url('light_wool.png');
+  font-size: 1.1rem;
   font-family: $nm-serif;
 }
 
@@ -30,7 +48,21 @@ img {
   max-width: 100%;
 }
 
+a {
+  transition: .3s;
+}
+
+hr {
+	height: 2px;
+	border: none;
+	border-radius: 2px;
+  background: $nm-primary-gradient;
+	box-shadow: 0 0 3px hsla($nm-primary-secondary-average-hue, 100%, 63%, .5);
+}
+
 .btn {
+  white-space: normal;
+  font-size: 100%;
   font-family: $nm-sans-serif;
   cursor: pointer;
 }
@@ -43,29 +75,27 @@ img {
 }
 
 //---------------*
-// Section plain
+// Sections
 
-.nm-section-plain {
-  margin: $nm-standard-spacer auto;
+.nm-section-plain, .nm-section-box {
+  margin: 0 auto $nm-standard-spacer;
   padding: $nm-standard-spacer;
 }
 
-//---------------*
 // Section box
 
 .nm-section-box {
   overflow: hidden;
-  margin: 1rem auto;
-  padding: 1.5rem;
-  background: #fff;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: hsla($nm-primary-hue, 100%, 50%, .03);
+  box-shadow:
+    0 0 7px hsla($nm-primary-hue, 80%, 83%, 0.25),
+    0 0 2px hsla($nm-primary-hue, 80%, 83%, 0.4) inset;
 }
 
 @include media-breakpoint-up(sm) {
   .nm-section-box {
-    border: 1px solid #ccc;
-    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-    border-radius: $border-radius;
+    border: 1px solid hsl($nm-primary-hue, 80%, 94%);
+    border-radius: 1.2rem;
   }
 }
 
@@ -79,15 +109,13 @@ img {
 // Navigation
 
 .navbar {
-  z-index: 1;
-  background: image_url('stardust.png');
+  background: image_url('stardust-2.png');
   box-shadow:
     // Upper-inner
-    0  2px  3px       hsla($nm-primary-hue, 24%, 21%, 0.25) inset,
-    0 15px 60px -10px hsla($nm-primary-hue, 22%,  5%, 0.5 ) inset,
+    0 15px 60px -10px $nm-black-50 inset,
     // Lower-outer
-    0 0  2px,
-    0 0 20px;
+    0 0  2px $nm-black-50,
+    0 0 20px $nm-black-50;
   font-family: $nm-sans-serif;
 }
 
@@ -101,15 +129,24 @@ img {
   }
 }
 
+@include media-breakpoint-up(md) {
+    .navbar {
+      z-index: 1;
+      height: 70px;
+  }
+}
+
 .navbar-dark .nav-link {
-	color: hsla(0, 0%, 100%, 0.5);
+	color: hsla(0, 0%, 100%, 0.4);
+  text-shadow: 0 0 3px hsla(0, 0%, 100%, 0.2);
 }
 
 //===============*
 // Main Content
 
 .nm-main-content {
-  padding-bottom: $nm-standard-spacer;
+  overflow: hidden;
+  padding-bottom: $nm-standard-spacer * 4;
 }
 
 @include media-breakpoint-up(sm) {
@@ -123,6 +160,22 @@ img {
     padding-right: 0;
     padding-left: 0;
   }
+}
+
+//===============*
+// Main Footer
+
+.nm-main-footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: $nm-standard-spacer;
+  width: 100%;
+  height: $nm-standard-spacer * 2;
+  background: $nm-primary-gradient;
+  box-shadow:
+    0 0  3px hsla($nm-primary-secondary-average-hue, 50%, 50%, 0.9),
+    0 0 40px hsla($nm-primary-secondary-average-hue, 50%, 50%, 0.6);
+  opacity: .75;
 }
 
 //===============*
@@ -143,6 +196,10 @@ abbr[title="required"] {
 
 .form-actions {
   margin-top: .5rem;
+}
+
+.form-control {
+	background-color: hsla(0, 0%, 100%, 0.3);
 }
 
 // Error messages
@@ -176,8 +233,6 @@ abbr[title="required"] {
 
 //===============*
 // Devise authentication form
-
-.nm-devise-view { @extend .nm-section-box ; }
 
 .nm-devise-view {
   max-width: 100%;

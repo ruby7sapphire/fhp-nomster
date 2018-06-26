@@ -5,6 +5,22 @@
 //===============*
 // User info
 
+.nm-user-info {
+	position: relative;
+}
+
+.nm-user-info::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1.5rem;
+	height: 100%;
+	background: $nm-primary-gradient;
+	box-shadow: 0 0 2px hsl($nm-primary-secondary-average-hue, 48%, 38%);
+	content: '';
+	opacity: 0.75;
+}
+
 .nm-user-info--identity {
 	display: flex;
 	align-items: center;
@@ -13,11 +29,11 @@
 }
 
 .nm-user-info--avatar {
-	background: linear-gradient(154deg, hsl(288, 48%, 58%), hsl(243, 49%, 36%));
+	background: $nm-primary-gradient;
 	-webkit-background-clip: text;
 	background-size: 100%;
 	font-size: 8rem;
-	filter: drop-shadow(0 0 1px hsl(266, 50%, 50%));
+	filter: drop-shadow(0 0 1px hsl($nm-primary-secondary-average-hue, 50%, 50%));
 
 	-webkit-text-fill-color: transparent;
 }
@@ -27,11 +43,6 @@
 	word-wrap: break-word;
 	font-weight: bold;
 	font-size: 115%;
-}
-
-.nm-user-info--member-since {
-	padding-bottom: 0.9rem;
-	border-bottom: 3px solid hsl(243, 50%, 50%);
 }
 
 .nm-user-info--stats {

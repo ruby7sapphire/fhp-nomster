@@ -13,7 +13,12 @@
 
 @include media-breakpoint-up(md) {
 	.nm-index-slider {
-		height: calc(400px + #{$nm-photo-slide--subtract-height});
+    // 400px slider height + 70px navbar height (slider goes under navbar)
+		height: calc(470px + #{$nm-photo-slide--subtract-height});
+	}
+
+  .nm-index-slide--caption {
+		text-align: center;
 	}
 }
 
@@ -30,15 +35,50 @@
 }
 
 //===============*
+// Navbar/slider translucent blur effect
+
+@include media-breakpoint-up(md) {
+  .nm-index-navbar {
+  	position: absolute;
+  	width: 100%;
+  	background: hsla(0, 0%, 0%, 0.6) !important;
+  }
+
+  .nm-index-slider .nm-photo-slider--fullscreen-toggle {
+  	top: calc(#{$nm-standard-spacer} + 70px);
+  }
+
+  .nm-index-slider .slick-arrow {
+    top: calc(50% - #{$nm-photo-slide--subtract-height / 2} + 25px);
+  }
+
+  .nm-index-slider .nm-photo-slide--img-outer {
+    position: relative;
+  }
+
+  .nm-index-slide--img-blur-overlay {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	clip: rect(0, 100vw, 70px, 0);
+  	filter: blur(3px);
+
+  	clip-path: polygon(0 0, 100% 0, 100% 70px, 0 70px);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .nm-index-slide--img-blur-overlay {
+    display: none !important;
+  }
+}
+
+//===============*
 // Place
 
 .nm-index-place,
 .nm-index-photo--featured {
 	padding: 0;
-}
-
-.nm-index-place {
-	min-height: 18rem;
 }
 
 .nm-index-photo--img {
@@ -55,13 +95,27 @@
 
 //---------------*
 // Pagination links
-// Make the previous and next buttons stay on the same spot
 
 .pagination {
-  min-width: 15rem;
+	margin-bottom: $nm-standard-spacer;
+  min-width: 18rem; // Make the previous and next buttons stay on the same spot horizontally
+	border: 1px solid hsl(242, 81%, 94%);
+	box-shadow:
+		0 0 7px rgba(179, 177, 246, 0.25),
+		0 0 2px rgba(179, 177, 246, 0.4) inset;
 }
 
 .page-item.disabled {
   flex-grow: 1;
   text-align: center;
+}
+
+.page-link, .page-item.disabled .page-link {
+	padding: .5rem 1rem;
+	border: none;
+	background: transparent;
+}
+
+.page-link:hover{
+	background: hsla(242, 100%, 50%, 0.1);
 }

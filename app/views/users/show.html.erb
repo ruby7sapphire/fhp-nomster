@@ -5,6 +5,7 @@
   <div class="nm-user-info--stats col-md-8">
     <p class="nm-user-info--email"><%= @user.email %></p>
     <p class="nm-user-info--member-since">Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
+    <hr>
     <div class="nm-user-info--review-counts">
       <p><%= @user.comments.count %> total comments</p>
       <p><%= @user.comments.where(rating: '5_stars').count %> total 5 star reviews</p>
